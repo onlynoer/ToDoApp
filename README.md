@@ -4,6 +4,7 @@ This App is Made in C#
 
 # Features
 - Add/Delete Groups
+- Group Titles
 - Add/Delete Tasks inside a Group 
 - Saves data on close
 
