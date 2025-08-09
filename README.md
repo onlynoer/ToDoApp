@@ -9,9 +9,9 @@ This App is Made in C#
 - Saves data on close
 
 # To-Do
-- Make groups ordable via dragging
+- Make groups orderable via dragging
 - Polish UI
 - Add Icons
 - Ability to reorder tasks
-- Add text for tasks
+~- Add text for tasks~
 - VirtualizingWrapPanel to reduce resource consumption and make this a memory efficient app
