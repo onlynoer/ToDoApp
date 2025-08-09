@@ -13,5 +13,5 @@ This App is Made in C#
 - Polish UI
 - Add Icons
 - Ability to reorder tasks
-~- Add text for tasks~
+- ~Add text for tasks~
 - VirtualizingWrapPanel to reduce resource consumption and make this a memory efficient app
