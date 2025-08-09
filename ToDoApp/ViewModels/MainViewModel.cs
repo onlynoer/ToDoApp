@@ -36,7 +36,7 @@ namespace ToDoApp.ViewModels
         {
             var g = new ToDoGroup { Name = "New Group" };
             //inserts after placeholder and title stays first
-            Items.Insert(Items.Count > 0 ? 1 : 0, g);
+            Items.Insert(Items.Count, g);
         }
 
         public void RemoveGroup(ToDoGroup group)
@@ -49,6 +49,7 @@ namespace ToDoApp.ViewModels
         {
             if (group == null) return;
             var t = new ToDoItem { Text = "New Task", Parent = group };
+            t.Parent = group;
             group.Tasks.Add(t);
         }
 

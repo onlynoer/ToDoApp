@@ -12,15 +12,16 @@ namespace ToDoApp.Models
         public ToDoGroup Parent { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged(string property) => PropertyChanged.Invoke(this, new PropertyChangedEventArgs(property));
+        protected void OnPropertyChanged(string property) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
 
-        private string _text = "";
+        private string _text = "New Task";
         public string Text
         {
             get => _text;
             set
             {
                 if (_text == value) return;
+                _text = value;
                 OnPropertyChanged(nameof(Text));
                 
             }

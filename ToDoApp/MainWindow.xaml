@@ -10,7 +10,7 @@
             <ItemsControl.Resources>
                 <!-- Add-group tile (first item) -->
                 <DataTemplate DataType="{x:Type models:AddGroupPlaceHolder}">
-                    <Border Width="280" Height="180" Margin="10" CornerRadius="6" Background="#4CB6D6">
+                    <Border Width="280" Height="280" Margin="10" CornerRadius="6" Background="#4CB6D6">
                         <Button Command="{Binding DataContext.AddGroupCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                 Background="Transparent" BorderThickness="0">
                             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -54,7 +54,7 @@
 
                                                 <!-- word-wrapping text in the middle; the TextBox expands vertically -->
                                                 <TextBox Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1"
-                                                         TextWrapping="Wrap" BorderThickness="0" Background="Transparent" AcceptsReturn="False"/>
+                                                         TextWrapping="Wrap" BorderThickness="0" Background="Transparent" AcceptsReturn="True"/>
 
                                                 <Button Content="X" Grid.Column="2" Width="24" Height="24"
                                                         Command="{Binding DataContext.RemoveTaskCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
