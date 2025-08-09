@@ -1,18 +1,21 @@
-﻿<Window
+﻿    <Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:models="clr-namespace:ToDoApp.Models"
         xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="av" x:Class="ToDoApp.MainWindow"
         Title="Simple Todo" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" av:DesignWidth="941.383" av:DesignHeight="546.46">
+    
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Padding="8" Background="CadetBlue">
         <ItemsControl ItemsSource="{Binding Items}">
 
             <ItemsControl.Resources>
                 <!-- Add-group tile (first item) -->
+                <!-- Add Group Button, also acts as a template for the buttons such as height, width, margin -->
                 <DataTemplate DataType="{x:Type models:AddGroupPlaceHolder}">
                     <Border Width="280" Height="280" Margin="10" CornerRadius="6" Background="#4CB6D6">
                         <Button Command="{Binding DataContext.AddGroupCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
-                                Background="Transparent" BorderThickness="0">
+                                Background="Transparent" BorderThickness="0" Cursor="Hand">
+
                             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <TextBlock FontSize="48" Text="+" HorizontalAlignment="Center" />
                                 <TextBlock Text="Add New Group" Margin="0,10,0,0" HorizontalAlignment="Center"/>
@@ -21,12 +24,14 @@
                     </Border>
                 </DataTemplate>
 
-                <!-- Group card -->
+                <!-- Group Template card -->
                 <DataTemplate DataType="{x:Type models:ToDoGroup}">
-                    <Border Width="280" Margin="10" Padding="8" CornerRadius="6" Background="#66BFE0" BorderBrush="#2F8FAF" BorderThickness="6">
+                    <Border Width="280" Margin="10" Padding="8" CornerRadius="6" Background="#66BFE0" BorderBrush="#2F8FAF" BorderThickness="6" HorizontalAlignment="Stretch">
                         <StackPanel>
+                            
+                            <!-- This is the top bit, the title and the close button -->
                             <DockPanel Margin="0,0,0,6">
-                                <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold" BorderThickness="0" Background="Transparent" DockPanel.Dock="Left"/>
+                                <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" FontSize="16" TextWrapping="Wrap" FontWeight="Bold" BorderThickness="0" Background="Transparent" DockPanel.Dock="Left" Width="220"/>
                                 <Button Content="X" Width="28" Height="28" DockPanel.Dock="Right"
                                         Command="{Binding DataContext.RemoveGroupCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                         CommandParameter="{Binding}" />
@@ -72,10 +77,11 @@
                     </Border>
                 </DataTemplate>
             </ItemsControl.Resources>
+
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <!-- ItemWidth sets how wide each group/tile is. Adjust to taste. -->
-                    <WrapPanel ItemWidth="300" Orientation="Horizontal"/>
+                    <WrapPanel ItemWidth="300" Orientation="Horizontal" HorizontalAlignment="Stretch"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
 
