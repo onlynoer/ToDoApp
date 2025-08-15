@@ -23,7 +23,7 @@ namespace ToDoApp.ViewModels
             //the path to the save file appdata then roaming then simpletodo
             _savePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "SimpleToDo", "data.json");
 
-            Items.Add(new AddGroupPlaceHolder());
+            //Items;
 
             AddGroupCommand = new RelayCommand(_ => AddGroup());
             RemoveGroupCommand = new RelayCommand(p => RemoveGroup(p as ToDoGroup));
@@ -31,13 +31,15 @@ namespace ToDoApp.ViewModels
             RemoveTaskCommand = new RelayCommand(p => RemoveTask(p as ToDoItem));
 
             Load();
+
+            Items.Add(new AddGroupPlaceHolder());
         }
 
         public void AddGroup()
         {
             var g = new ToDoGroup { Name = "New Group" };
             //inserts after placeholder and title stays first
-            Items.Insert(Items.Count, g);
+            Items.Insert(Items.Count - 1, g);
         }
 
         public void RemoveGroup(ToDoGroup group)
@@ -127,7 +129,7 @@ namespace ToDoApp.ViewModels
                         var t = new ToDoItem { Text = st.Text, IsDone = st.IsDone, Parent = g };
                         g.Tasks.Add(t);
                     }
-                    Items.Insert(Items.Count > 0 ? 1 : 0, g);
+                    Items.Insert(Items.Count > 0 ? 1 : 0, g); //> 0 ? 1 : 0
                 }
             }
             catch (Exception)

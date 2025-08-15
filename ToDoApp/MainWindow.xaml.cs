@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Collections.ObjectModel;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -15,6 +16,7 @@ using System.Windows.Shapes;
 
 using System.ComponentModel;
 using ToDoApp.ViewModels;
+using ToDoApp.Models;
 
 namespace ToDoApp
 {
@@ -34,8 +36,12 @@ namespace ToDoApp
 
         protected override void OnClosing(CancelEventArgs e)
         {
-            base.OnClosed(e);
+            base.OnClosing(e);
             VM?.Save();
         }
+
+        // In MainWindow.xaml.cs or use an attached behavior
+        
+
     }
 }
